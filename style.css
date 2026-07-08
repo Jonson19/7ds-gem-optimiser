@@ -1,1 +1,108 @@
+:root {
+    --background:#111827;
+    --surface:#1f2937;
+    --surface2:#273449;
+    --primary:#4f8cff;
+    --primaryHover:#3f74d8;
+    --text:#ffffff;
+    --text2:#b9c3d4;
+    --border:#38465d;
+    --radius:12px;
+}
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:var(--background);
+    color:var(--text);
+}
+
+.container{
+    display:grid;
+    grid-template-columns:240px 1fr;
+    min-height:100vh;
+}
+
+.sidebar{
+    background:var(--surface);
+    padding:20px;
+}
+
+.sidebar h2{
+    margin-bottom:20px;
+}
+
+.sidebar button{
+    display:block;
+    width:100%;
+    margin-bottom:10px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:var(--surface2);
+    color:white;
+    cursor:pointer;
+}
+
+.sidebar button.active{
+    background:var(--primary);
+}
+
+.content{
+    display:flex;
+    flex-direction:column;
+}
+
+header{
+    background:var(--surface);
+    padding:20px;
+    border-bottom:1px solid var(--border);
+}
+
+main{
+    padding:20px;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+.card{
+    background:var(--surface);
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.searchBar,
+select,
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+.primaryButton{
+    padding:12px 20px;
+    background:var(--primary);
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.gemCard{
+    background:var(--surface);
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:15px;
+}
