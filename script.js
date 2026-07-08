@@ -1,95 +1,114 @@
+// ==========================================
+// 7DS Idle Adventure Gem Optimizer
+// Version 2.0
+// ==========================================
+
+// -------------------------------
+// Global Data
+// -------------------------------
+
 let gems = [];
+
+const WEIGHTS = {
+    "Crit Chance": 748.3,
+    "Crit Damage": 179.473684,
+    "Accuracy": 154.259259,
+    "Crit Resistance": 76.785714,
+    "Attack": 64.375,
+    "Crit Defense": 16.764706,
+    "Evasion": 15.947368,
+    "Defense": 7.358491,
+    "HP": 0.047619
+};
+
+// -------------------------------
+// Navigation
+// -------------------------------
 
 const navButtons = document.querySelectorAll(".navButton");
 const pages = document.querySelectorAll(".page");
 
 navButtons.forEach(button => {
+
     button.addEventListener("click", () => {
+
         navButtons.forEach(b => b.classList.remove("active"));
         pages.forEach(p => p.classList.remove("active"));
 
         button.classList.add("active");
 
-        const page = document.getElementById(button.dataset.page);
-        if (page) page.classList.add("active");
+        const target = document.getElementById(button.dataset.page);
+
+        if (target) {
+            target.classList.add("active");
+        }
+
     });
+
 });
 
-function loadGems() {
-    const data = localStorage.getItem("gems");
+// -------------------------------
+// Local Storage
+// -------------------------------
 
-    if (data) {
-        gems = JSON.parse(data);
+function loadGems() {
+
+    const saved = localStorage.getItem("gems");
+
+    if (saved) {
+
+        gems = JSON.parse(saved);
+
     } else {
+
         gems = [];
+
     }
 
-    renderInventory();
 }
 
 function saveGems() {
-    localStorage.setItem("gems", JSON.stringify(gems));
+
+    localStorage.setItem(
+        "gems",
+        JSON.stringify(gems)
+    );
+
 }
+
+// -------------------------------
+// Combat Class Calculation
+// -------------------------------
+
+function calculateGemCC(gem) {
+
+    let total = 0;
+
+    gem.baseStats.forEach(stat => {
+
+        if (!WEIGHTS[stat.stat]) return;
+
+        total += Number(stat.value) * WEIGHTS[stat.stat];
+
+    });
+
+    return Math.round(total);
+
+}
+
+// -------------------------------
+// Inventory
+// -------------------------------
 
 function renderInventory() {
 
     const list = document.getElementById("inventoryList");
-    const count = document.getElementById("gemCount");
+    const counter = document.getElementById("gemCount");
 
-    if (!list || !count) return;
+    if (!list) return;
 
     list.innerHTML = "";
-    count.textContent = gems.length;
 
-    gems.forEach(gem => {
+    counter.textContent = gems
 
-        const card = document.createElement("div");
-        card.className = "gemCard";
-
-        card.innerHTML = `
-            <h3>${gem.color} ${gem.rarity}</h3>
-            <p>ID: ${gem.id}</p>
-        `;
-
-        list.appendChild(card);
-
-    });
-
-}
-
-const form = document.getElementById("gemForm");
-
-if (form) {
-
-    form.addEventListener("submit", e => {
-
-        e.preventDefault();
-
-        gems.push({
-            id: Date.now(),
-            color: document.getElementById("gemColor").value,
-            rarity: document.getElementById("gemRarity").value
-        });
-
-        saveGems();
-        renderInventory();
-
-        alert("Gem saved!");
-
-    });
-
-}
-
-const search = document.getElementById("search");
-
-if (search) {
-
-    search.addEventListener("input", function () {
-
-        const value = this.value.toLowerCase();
-
-        document.querySelectorAll(".gemCard").forEach(card => {
-
-            card.style.display = card.innerText.toLowerCase().includes(value)
-                ? ""
-                :
+        
