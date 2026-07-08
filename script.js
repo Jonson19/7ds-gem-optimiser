@@ -110,5 +110,114 @@ function renderInventory() {
     list.innerHTML = "";
 
     counter.textContent = gems
+// -------------------------------
+// Delete Gem
+// -------------------------------
 
+function deleteGem(id) {
+
+    gems = gems.filter(gem => gem.id != id);
+
+    saveGems();
+
+    renderInventory();
+
+}
+
+// -------------------------------
+// Add Gem
+// -------------------------------
+
+const form = document.getElementById("gemForm");
+
+if (form) {
+
+    form.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        const baseStats = [];
+
+        for (let i = 1; i <= 3; i++) {
+
+            const stat = document.getElementById("stat" + i).value;
+            const value = document.getElementById("value" + i).value;
+
+            if (
+                stat !== "None" &&
+                value !== ""
+            ) {
+
+                baseStats.push({
+
+                    stat,
+                    value: Number(value)
+
+                });
+
+            }
+
+        }
+
+        const gem = {
+
+            id: Date.now(),
+
+            color: document.getElementById("gemColor").value,
+
+            rarity: document.getElementById("gemRarity").value,
+
+            baseStats: baseStats,
+
+            bonuses: []
+
+        };
+
+        gems.push(gem);
+
+        saveGems();
+
+        renderInventory();
+
+        form.reset();
+
+        alert("Gem saved!");
+
+    });
+
+}
+
+// -------------------------------
+// Search
+// -------------------------------
+
+const search = document.getElementById("search");
+
+if (search) {
+
+    search.addEventListener("input", function () {
+
+        const value = this.value.toLowerCase();
+
+        document.querySelectorAll(".gemCard").forEach(card => {
+
+            if (
+                card.innerText
+                    .toLowerCase()
+                    .includes(value)
+            ) {
+
+                card.style.display = "";
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+}
         
