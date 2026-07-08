@@ -48,3 +48,167 @@
                 <div class="pageHeader">
 
                     <h2>Gem Inventory
+<!-- ========================= -->
+<!-- Gem Inventory -->
+<!-- ========================= -->
+
+<section id="inventory" class="page">
+
+    <div class="card">
+
+        <h2>Gem Inventory</h2>
+
+        <input
+            type="text"
+            id="search"
+            class="searchBar"
+            placeholder="Search gems...">
+
+        <div id="inventoryList"></div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Add Gem -->
+<!-- ========================= -->
+
+<section id="builder" class="page">
+
+    <div class="card">
+
+        <h2>Add Gem</h2>
+
+        <form id="gemForm">
+
+            <h3>General</h3>
+
+            <label>Color</label>
+
+            <select id="gemColor">
+
+                <option>Red</option>
+                <option>Blue</option>
+                <option>Green</option>
+                <option>Yellow</option>
+
+            </select>
+
+            <label>Rarity</label>
+
+            <select id="gemRarity">
+
+                <option>Common</option>
+                <option>Rare</option>
+                <option>Epic</option>
+                <option>Legendary</option>
+                <option>Unique</option>
+
+            </select>
+
+            <hr>
+
+            <h3>Base Stat 1</h3>
+
+            <select id="stat1">
+
+                <option>None</option>
+                <option>Attack</option>
+                <option>Defense</option>
+                <option>HP</option>
+                <option>Accuracy</option>
+                <option>Crit Chance</option>
+                <option>Crit Damage</option>
+                <option>Crit Resistance</option>
+                <option>Crit Defense</option>
+                <option>Evasion</option>
+
+            </select>
+
+            <input
+                type="number"
+                id="value1"
+                step="0.01"
+                placeholder="Value %">
+
+            <hr>
+
+            <h3>Base Stat 2</h3>
+
+            <select id="stat2">
+
+                <option>None</option>
+                <option>Attack</option>
+                <option>Defense</option>
+                <option>HP</option>
+                <option>Accuracy</option>
+                <option>Crit Chance</option>
+                <option>Crit Damage</option>
+                <option>Crit Resistance</option>
+                <option>Crit Defense</option>
+                <option>Evasion</option>
+
+            </select>
+
+            <input
+                type="number"
+                id="value2"
+                step="0.01"
+                placeholder="Value %">
+
+            <hr>
+
+            <h3>Base Stat 3</h3>
+
+            <select id="stat3">
+
+                <option>None</option>
+                <option>Attack</option>
+                <option>Defense</option>
+                <option>HP</option>
+                <option>Accuracy</option>
+                <option>Crit Chance</option>
+                <option>Crit Damage</option>
+                <option>Crit Resistance</option>
+                <option>Crit Defense</option>
+                <option>Evasion</option>
+
+            </select>
+
+            <input
+                type="number"
+                id="value3"
+                step="0.01"
+                placeholder="Value %">
+
+            <hr>
+
+            <h3>Conditional Bonuses</h3>
+
+            <div id="bonusContainer"></div>
+
+            <button
+                type="button"
+                id="addBonus"
+                class="primaryButton">
+
+                + Add Bonus
+
+            </button>
+
+            <br><br>
+
+            <button
+                type="submit"
+                class="primaryButton">
+
+                Save Gem
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
