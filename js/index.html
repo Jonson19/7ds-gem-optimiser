@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7DS Idle Adventure - Gem Optimizer</title>
 
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+
+        <div>
+            <h1>7DS Idle Adventure</h1>
+            <h2>Gem Optimizer</h2>
+        </div>
+
+    </header>
+
+    <nav class="sidebar">
+
+        <button class="navButton active" data-page="inventory">
+            📦 Inventory
+        </button>
+
+        <button class="navButton" data-page="addGem">
+            ➕ Add Gem
+        </button>
+
+        <button class="navButton" data-page="calculator">
+            📊 Combat Class
+        </button>
+
+        <button class="navButton" data-page="optimizer">
+            🧠 Optimizer
+        </button>
+
+        <button class="navButton" data-page="settings">
+            ⚙ Settings
+        </button>
+
+    </nav>
+
+    <main>
+
+        <!-- INVENTORY -->
+
+        <section id="inventory" class="page active">
+
+            <div class="pageHeader">
+
+                <h3>Inventory</h3>
+
+                <div class="inventoryStats">
+                    Total Gems:
+                    <strong id="gemCount">0</strong>
+                </div>
+
+            </div>
+
+            <div class="searchBar">
+
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="Search Gems..."
+                >
+
+            </div>
+
+            <div class="filters">
+
+                <select id="filterColor">
+                    <option value="">All Colors</option>
+                    <option>Ruby</option>
+                    <option>Sapphire</option>
+                    <option>Emerald</option>
+                    <option>Topaz</option>
+                </select>
+
+                <select id="filterRarity">
+                    <option value="">All Rarities</option>
+                    <option>Common</option>
+                    <option>Rare</option>
+                    <option>Epic</option>
+                    <option>Legendary</option>
+                    <option>Unique</option>
+                </select>
+
+            </div>
+
+            <div id="inventoryList">
+                <!-- Gems will be displayed here -->
+            </div>
+
+        </section>
+
+        <!-- ADD GEM -->
+
+        <section id="addGem" class="page">
+
+            <h3>Add Gem</h3>
+
+            <form id="gemForm">
+
+                <div class="card">
+
+                    <label>
+                        Color
+                        <select id="gemColor">
+                            <option>Ruby</option>
+                            <option>Sapphire</option>
+                            <option>Emerald</option>
+                            <option>Topaz</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Rarity
+                        <select id="gemRarity">
+                            <option>Common</option>
+                            <option>Rare</option>
+                            <option>Epic</option>
+                            <option>Legendary</option>
+                            <option>Unique</option>
+                        </select>
+                    </label>
+
+               
