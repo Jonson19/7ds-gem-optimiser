@@ -1,1 +1,193 @@
+:root {
+    --background: #111827;
+    --surface: #1f2937;
+    --surface2: #273449;
 
+    --primary: #4f8cff;
+    --primaryHover: #3f74d8;
+
+    --text: #ffffff;
+    --text2: #b9c3d4;
+
+    --border: #38465d;
+
+    --radius: 12px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Inter,sans-serif;
+    background:var(--background);
+    color:var(--text);
+}
+
+.container{
+    display:grid;
+    grid-template-columns:240px 1fr;
+    min-height:100vh;
+}
+
+.sidebar{
+    background:var(--surface);
+    border-right:1px solid var(--border);
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.sidebar button{
+    background:none;
+    border:none;
+    color:var(--text2);
+    text-align:left;
+    padding:14px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.2s;
+    font-size:15px;
+}
+
+.sidebar button:hover{
+    background:var(--surface2);
+    color:white;
+}
+
+.sidebar button.active{
+    background:var(--primary);
+    color:white;
+}
+
+header{
+    position:fixed;
+    left:240px;
+    right:0;
+    top:0;
+    height:80px;
+    background:var(--surface);
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    padding:20px 35px;
+    z-index:100;
+}
+
+main{
+    padding:110px 35px 35px;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+.card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.primaryButton{
+    background:var(--primary);
+    color:white;
+    border:none;
+    padding:14px 24px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.primaryButton:hover{
+    background:var(--primaryHover);
+}
+
+input,
+select{
+    width:100%;
+    background:#111827;
+    color:white;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:12px;
+    margin-top:6px;
+    margin-bottom:16px;
+}
+
+label{
+    display:block;
+    color:var(--text2);
+    margin-bottom:10px;
+}
+
+.searchBar{
+    margin-bottom:20px;
+}
+
+.filters{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+#inventoryList{
+    display:grid;
+    gap:15px;
+}
+
+.gemCard{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:18px;
+}
+
+.pageHeader{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.weights{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+}
+
+@media(max-width:900px){
+
+    .container{
+        grid-template-columns:1fr;
+    }
+
+    header{
+        left:0;
+    }
+
+    .sidebar{
+        position:fixed;
+        bottom:0;
+        left:0;
+        right:0;
+        flex-direction:row;
+        overflow-x:auto;
+        border-right:none;
+        border-top:1px solid var(--border);
+        z-index:1000;
+    }
+
+    main{
+        padding-bottom:100px;
+    }
+
+}
