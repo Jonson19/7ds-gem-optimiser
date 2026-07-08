@@ -220,4 +220,101 @@ if (search) {
     });
 
 }
-        
+        // -------------------------------
+// Bonus Builder (placeholder)
+// -------------------------------
+
+const addBonusButton = document.getElementById("addBonus");
+
+if (addBonusButton) {
+
+    addBonusButton.addEventListener("click", () => {
+
+        const container = document.getElementById("bonusContainer");
+
+        const row = document.createElement("div");
+
+        row.className = "bonusRow";
+
+        row.innerHTML = `
+
+            <select class="bonusStat">
+
+                <option>Attack</option>
+                <option>Defense</option>
+                <option>HP</option>
+                <option>Accuracy</option>
+                <option>Crit Chance</option>
+                <option>Crit Damage</option>
+                <option>Crit Resistance</option>
+                <option>Crit Defense</option>
+                <option>Evasion</option>
+
+            </select>
+
+            <input
+                class="bonusValue"
+                type="number"
+                step="0.01"
+                placeholder="%">
+
+            <button
+                type="button"
+                class="removeBonus">
+
+                Remove
+
+            </button>
+
+        `;
+
+        container.appendChild(row);
+
+        row.querySelector(".removeBonus")
+            .addEventListener("click", () => {
+
+                row.remove();
+
+            });
+
+    });
+
+}
+
+// -------------------------------
+// Optimizer Placeholder
+// -------------------------------
+
+const optimizeButton = document.getElementById("optimizeButton");
+
+if (optimizeButton) {
+
+    optimizeButton.addEventListener("click", () => {
+
+        const output =
+            document.getElementById("optimizationResults");
+
+        output.innerHTML = `
+
+            <h3>Optimizer</h3>
+
+            <p>
+
+                Optimizer coming soon.
+
+            </p>
+
+            <p>
+
+                Current inventory:
+                <strong>${gems.length}</strong> gems.
+
+            </p>
+
+        `;
+
+    });
+
+}
+
+// ----------------
