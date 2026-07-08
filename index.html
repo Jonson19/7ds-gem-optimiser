@@ -2,213 +2,123 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7DS Gem Optimizer</title>
 
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>7DS Idle Adventure Gem Optimizer</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
 </head>
 
 <body>
 
 <div class="container">
 
+    <!-- ========================= -->
+    <!-- Sidebar -->
+    <!-- ========================= -->
+
     <aside class="sidebar">
 
-        <h2>7DS Optimizer</h2>
+        <h1>7DS</h1>
 
-        <button class="navButton active" data-page="dashboard">Dashboard</button>
-        <button class="navButton" data-page="inventory">Gem Inventory</button>
-        <button class="navButton" data-page="builder">Add Gem</button>
-        <button class="navButton" data-page="optimizer">Optimizer</button>
+        <h2>Gem Optimizer</h2>
+
+        <button
+            class="navButton active"
+            data-page="dashboard">
+
+            Dashboard
+
+        </button>
+
+        <button
+            class="navButton"
+            data-page="inventory">
+
+            Inventory
+
+        </button>
+
+        <button
+            class="navButton"
+            data-page="builder">
+
+            Add Gem
+
+        </button>
+
+        <button
+            class="navButton"
+            data-page="pages">
+
+            Gem Pages
+
+        </button>
+
+        <button
+            class="navButton"
+            data-page="optimizer">
+
+            Optimizer
+
+        </button>
 
     </aside>
+
+    <!-- ========================= -->
+    <!-- Main Content -->
+    <!-- ========================= -->
 
     <div class="content">
 
         <header>
 
-            <h1>7DS Idle Adventure Gem Optimizer</h1>
+            <h1>
+
+                Seven Deadly Sins Idle Adventure
+                <br>
+                Gem Optimizer
+
+            </h1>
 
         </header>
 
         <main>
 
-            <section id="dashboard" class="page active">
-
-                <div class="card">
-                    <h2>Dashboard</h2>
-                    <p>Total Gems: <span id="gemCount">0</span></p>
-                </div>
-
-            </section>
-
-            <section id="inventory" class="page">
-
-                <div class="pageHeader">
-
-                    <h2>Gem Inventory
 <!-- ========================= -->
-<!-- Gem Inventory -->
+<!-- Dashboard -->
 <!-- ========================= -->
 
-<section id="inventory" class="page">
+<section
+    id="dashboard"
+    class="page active">
 
     <div class="card">
 
-        <h2>Gem Inventory</h2>
+        <h2>Dashboard</h2>
 
-        <input
-            type="text"
-            id="search"
-            class="searchBar"
-            placeholder="Search gems...">
+        <p>
 
-        <div id="inventoryList"></div>
+            Total Gems
+
+            <strong id="gemCount">
+
+                0
+
+            </strong>
+
+        </p>
 
     </div>
 
 </section>
-
-<!-- ========================= -->
-<!-- Add Gem -->
-<!-- ========================= -->
-
-<section id="builder" class="page">
-
-    <div class="card">
-
-        <h2>Add Gem</h2>
-
-        <form id="gemForm">
-
-            <h3>General</h3>
-
-            <label>Color</label>
-
-            <select id="gemColor">
-
-                <option>Red</option>
-                <option>Blue</option>
-                <option>Green</option>
-                <option>Yellow</option>
-
-            </select>
-
-            <label>Rarity</label>
-
-            <select id="gemRarity">
-
-                <option>Common</option>
-                <option>Rare</option>
-                <option>Epic</option>
-                <option>Legendary</option>
-                <option>Unique</option>
-
-            </select>
-
-            <hr>
-
-            <h3>Base Stat 1</h3>
-
-            <select id="stat1">
-
-                <option>None</option>
-                <option>Attack</option>
-                <option>Defense</option>
-                <option>HP</option>
-                <option>Accuracy</option>
-                <option>Crit Chance</option>
-                <option>Crit Damage</option>
-                <option>Crit Resistance</option>
-                <option>Crit Defense</option>
-                <option>Evasion</option>
-
-            </select>
-
-            <input
-                type="number"
-                id="value1"
-                step="0.01"
-                placeholder="Value %">
-
-            <hr>
-
-            <h3>Base Stat 2</h3>
-
-            <select id="stat2">
-
-                <option>None</option>
-                <option>Attack</option>
-                <option>Defense</option>
-                <option>HP</option>
-                <option>Accuracy</option>
-                <option>Crit Chance</option>
-                <option>Crit Damage</option>
-                <option>Crit Resistance</option>
-                <option>Crit Defense</option>
-                <option>Evasion</option>
-
-            </select>
-
-            <input
-                type="number"
-                id="value2"
-                step="0.01"
-                placeholder="Value %">
-
-            <hr>
-
-            <h3>Base Stat 3</h3>
-
-            <select id="stat3">
-
-                <option>None</option>
-                <option>Attack</option>
-                <option>Defense</option>
-                <option>HP</option>
-                <option>Accuracy</option>
-                <option>Crit Chance</option>
-                <option>Crit Damage</option>
-                <option>Crit Resistance</option>
-                <option>Crit Defense</option>
-                <option>Evasion</option>
-
-            </select>
-
-            <input
-                type="number"
-                id="value3"
-                step="0.01"
-                placeholder="Value %">
-
-            <hr>
-
-            <h3>Conditional Bonuses</h3>
-
-            <div id="bonusContainer"></div>
-
-            <button
-                type="button"
-                id="addBonus"
-                class="primaryButton">
-
-                + Add Bonus
-
-            </button>
-
-            <br><br>
-
-            <button
-                type="submit"
-                class="primaryButton">
-
-                Save Gem
-
-            </button>
-
-        </form>
-
-    </div>
-
-</section>
+            
+            
